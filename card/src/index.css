@@ -1,0 +1,106 @@
+@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+ @keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-12px); /* ⬆️ Increase from -4px or -5px to -12px */
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite; /* ⏱ Faster movement */
+}
+
+
+  .soft-shine::before {
+    content: '';
+    position: absolute;
+    top: -40%;
+    left: -60%;
+    width: 220%;
+    height: 200%;
+    background: linear-gradient(
+      120deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.08) 45%,
+      rgba(255, 255, 255, 0.15) 50%,
+      rgba(255, 255, 255, 0.08) 55%,
+      transparent 100%
+    );
+    transform: rotate(25deg);
+    animation: shineMove 5s ease-in-out infinite;
+    border-radius: inherit;
+  }
+
+  @keyframes shineMove {
+    0% {
+      transform: rotate(25deg) translateX(-120%);
+    }
+    100% {
+      transform: rotate(25deg) translateX(120%);
+    }
+  }
+}
+
+.blur-bg-container {
+  position: relative;
+  overflow: hidden;
+}
+
+
+
+.blur-bg-container::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #1E201E 0%, #3C3D37 40%, #697565 75%, #ECDFCC 100%);
+  filter: blur(12px);
+  z-index: 0;
+  border-radius: 1.5rem;
+}
+
+
+.blur-bg-container > * {
+  position: relative;
+  z-index: 1; /* ensure content is above the blur */
+}
+
+
+
+
+/* popup */
+background: linear-gradient(
+  135deg, 
+  #1E201E 0%, 
+  #3C3D37 40%, 
+  #697565 75%, 
+  #ECDFCC 100%,
+   #d4af37 0%, 
+   #c0962c 50%, 
+   #ffd700 100%
+);
+background: linear-gradient(135deg, 
+  #1A120B 0%,       /* Dark Brown */
+  #3C2A21 30%,      /* Medium Brown */
+  #C8C19A 65%,      /* Softer muted beige (slightly lighter than #D5CEA3) */
+  #E5E5CB 100%      /* Light cream */
+);
+background: linear-gradient(135deg, 
+  #D3AF37 0%,      /* Base Metallic Gold */
+  #C0962C 60%,     /* Intermediate lighter metallic */
+  #FFD700 100%     /* Classic Gold */
+);
+background: linear-gradient(135deg, 
+  #ebd197 0%,    /* Light gold */
+  #bb9b49 40%,   /* Medium gold */
+  #b48811 65%,   /* Dark gold */
+  #a2790d 85%,   /* Darker gold */
+  #ffffff 100%   /* White highlight */
+);
+filter: blur(12px);
